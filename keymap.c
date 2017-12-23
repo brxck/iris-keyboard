@@ -25,14 +25,14 @@ enum custom_keycodes {
 #define KC_BL_S BL_STEP
 
 // arrow keys on mod tap
-#define MT(MOD_RSFT, KC_RGHT)
-#define MT(MOD_LSFT, KC_LEFT)
+#define KC_LSTT MT(MOD_RSFT, KC_RGHT)
+#define KC_RSTT MT(MOD_LSFT, KC_LEFT)
 
 // workspaces
-#define LWSP LALT(LCTL(KC_RGHT))
-#define RWSP LALT(LCTL(KC_LEFT))
-#define RMOV LSFT(LALT(LCTL(KC_RGHT)))
-#define LMOV LSFT(LALT(LCTL(KC_LEFT)))
+#define KC_LWSP LALT(LCTL(KC_RGHT))
+#define KC_RWSP LALT(LCTL(KC_LEFT))
+#define KC_RMOV LSFT(LALT(LCTL(KC_RGHT)))
+#define KC_LMOV LSFT(LALT(LCTL(KC_LEFT)))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -42,11 +42,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
+     RASE, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,SPC ,     ENT , N  , M  ,COMM,DOT ,SLSH,RGHT,
+     LSTT, Z  , X  , C  , V  , B  ,ENT ,     TAB , N  , M  ,COMM,DOT ,SLSH,RSTT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       RASE,LOWR,SPC ,         ENT ,LGUI,LALT
+                       LCTL,LOWR, ENT,         SPC ,LGUI,LALT
   //                  `----+----+----'        `----+----+----'
   ),
 
