@@ -25,14 +25,14 @@ enum custom_keycodes {
 #define KC_BL_S BL_STEP
 
 // arrow keys on mod tap
-#define KC_LSTT MT(MOD_RSFT, KC_RGHT)
-#define KC_RSTT MT(MOD_LSFT, KC_LEFT)
+#define KC_RSTT MT(MOD_RSFT, KC_RGHT)
+#define KC_LSTT MT(MOD_LSFT, KC_LEFT)
 
 // workspaces
-#define KC_LWSP LALT(LCTL(KC_RGHT))
-#define KC_RWSP LALT(LCTL(KC_LEFT))
-#define KC_RMOV LSFT(LALT(LCTL(KC_RGHT)))
+#define KC_LWSP LALT(LCTL(KC_LEFT))
+#define KC_RWSP LALT(LCTL(KC_RGHT))
 #define KC_LMOV LSFT(LALT(LCTL(KC_LEFT)))
+#define KC_RMOV LSFT(LALT(LCTL(KC_RGHT)))
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      RASE, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSTT, Z  , X  , C  , V  , B  ,ENT ,     TAB , N  , M  ,COMM,DOT ,SLSH,RSTT,
+     LSTT, Z  , X  , C  , V  , B  ,TAB ,     ENT , N  , M  ,COMM,DOT ,SLSH,RSTT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        LCTL,LOWR, ENT,         SPC ,LGUI,LALT
   //                  `----+----+----'        `----+----+----'
@@ -58,9 +58,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,LEFT,DOWN,RGHT,LBRC,               RBRC, P4 , P5 , P6 ,PLUS,PIPE,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,MPRV,MPLY,MNXT,LCBR,    ,         ,RCBR, P1 , P2 , P3 ,MINS,    ,
+         ,    ,MPRV,MPLY,MNXT,LCBR,    ,    LPRN ,RCBR, P1 , P2 , P3 ,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,LPRN,        RPRN,    , P0 
+                           ,    ,     ,        RPRN,    , P0 
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -68,11 +68,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,LMOV,PGUP,RMOV,    ,                   ,    ,    ,    ,    ,    ,
+         ,    ,LMOV,PGUP,RMOV,    ,                   ,BTN1,MS_U,BTN2,WH_U,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,HOME,PGDN,END ,UNDS,               EQL ,    ,    ,    ,    ,BSLS,
+         ,    ,HOME,PGDN,END ,UNDS,               EQL ,MS_L,MS_D,MS_R,WH_D,BSLS,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,MPRV,MPLY,MNXT,MINS,    ,         ,PLUS,    ,    ,    ,    ,    ,
+         ,    ,MPRV,MPLY,MNXT,MINS,    ,         ,PLUS,ACL0,ACL1,ACL2,    ,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,    
   //                  `----+----+----'        `----+----+----'
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,--------+--------+--------+--------+--------+--------.                          ,--------+--------+--------+--------+--------+--------.
       _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
-      _______, MU_TOG , _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
       _______, DEBUG  , _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------+--------.        ,--------|--------+--------+--------+--------+--------+--------|
