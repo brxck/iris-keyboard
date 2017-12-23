@@ -4,37 +4,38 @@ Keymaps and configs for my custom made Iris Keyboard.
 
 ## Todo
 
-- Double tap for CAPSLOCK?
-- vscode layer?
+- Additional layers:
+  - gaming
+  - vscode
 
 ## Keymap
 
 ```text
   [_QWERTY] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     GESC, 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,BSPC,
+     GRES, 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,DEL ,
+     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      RASE, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QURC,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSTT, Z  , X  , C  , V  , B  ,TAB ,     ENT , N  , M  ,COMM,DOT ,SLSH,RSTT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LCTL,LOWR, ENT,         SPC ,LGUI,LALT
+                       LCTL,LOWR, ENTS,        SPC ,LGUI,LALT
   //                  `----+----+----'        `----+----+----'
   ),
 
   [_LOWER] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
+     TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,PGUP,HOME, UP ,END ,    ,                   , P7 , P8 , P9 ,PIPE,    ,
+         ,PGUP,HOME, UP ,END ,    ,                   , 7  , 8  , 9  ,PIPE,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,PGDN,LEFT,DOWN,RGHT,    ,                   , P4 , P5 , P6 ,PLUS,    ,
+         ,PGDN,LEFT,DOWN,RGHT,    ,                   , 4  , 5  , 6  ,PLUS,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,LMOV,RMOV,LWSP,RWSP,    ,    ,         ,    , P1 , P2 , P3 ,MINS,    ,
+         ,LMOV,RMOV,LWSP,RWSP,    ,    ,         ,    , 1  , 2  , 3  ,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,     ,           ,    , P0 
+                           ,    ,     ,           ,    , 0 
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -44,11 +45,12 @@ Keymaps and configs for my custom made Iris Keyboard.
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,                   ,LCBR,RCBR,PLUS,TILD,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,MPRV,MPLY,MNXT,    ,                   ,LPRN,RPRN,EQL ,UNDS,    ,
+         ,MPRV,MPLY,MNXT,    ,    ,                   ,LPRN,RPRN,EQL ,UNDS,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,    ,    ,    ,    ,    ,    ,         ,    ,LBRC,RBRC,MINS,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,    
   //                  `----+----+----'        `----+----+----'
   ),
+
 ```
