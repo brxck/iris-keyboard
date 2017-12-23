@@ -24,9 +24,10 @@ enum custom_keycodes {
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
 
-// arrow keys on mod tap
+// mod tap
 #define KC_RSTT MT(MOD_RSFT, KC_RGHT)
 #define KC_LSTT MT(MOD_LSFT, KC_LEFT)
+#define KC_QURC MT(MOD_RCTL, KC_QUOT)
 
 // workspaces
 #define KC_LWSP LALT(LCTL(KC_LEFT))
@@ -42,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     RASE, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
+     RASE, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QURC,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSTT, Z  , X  , C  , V  , B  ,TAB ,     ENT , N  , M  ,COMM,DOT ,SLSH,RSTT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
@@ -54,13 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,PGUP,HOME, UP ,END ,    ,                   , P7 , P8 , P9 ,    ,    ,
+         ,PGUP,HOME, UP ,END ,    ,                   , P7 , P8 , P9 ,PIPE,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,PGDN,LEFT,DOWN,RGHT,LBRC,               RBRC, P4 , P5 , P6 ,PLUS,PIPE,
+         ,PGDN,LEFT,DOWN,RGHT,    ,                   , P4 , P5 , P6 ,PLUS,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,LMOV,RMOV,LWSP,RWSP,LCBR,    ,    LPRN ,RCBR, P1 , P2 , P3 ,MINS,    ,
+         ,LMOV,RMOV,LWSP,RWSP,    ,    ,         ,    , P1 , P2 , P3 ,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,     ,        RPRN,    , P0 
+                           ,    ,     ,           ,    , P0 
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -68,11 +69,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,MNXT,    ,    ,    ,                   ,BTN1,MS_U,BTN2,WH_U,    ,
+         ,    ,    ,    ,    ,    ,                   ,LCBR,RCBR,PLUS,TILD,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,    ,MPLY,    ,    ,UNDS,               EQL ,MS_L,MS_D,MS_R,WH_D,BSLS,
+         ,    ,MPRV,MPLY,MNXT,    ,                   ,LPRN,RPRN,EQL ,UNDS,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,    ,MPRV,    ,    ,MINS,    ,         ,PLUS,ACL0,ACL1,ACL2,    ,    ,
+         ,    ,    ,    ,    ,    ,    ,         ,    ,LBRC,RBRC,MINS,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,    
   //                  `----+----+----'        `----+----+----'
