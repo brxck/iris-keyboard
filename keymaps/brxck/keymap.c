@@ -44,11 +44,20 @@ enum custom_keycodes {
 // windows
 #define KC_WLFT LGUI(KC_LEFT)
 #define KC_WRGT LGUI(KC_RGHT)
-#define KC_WUP  LGUI(KC_UP)
+#define KC_WMAX  LGUI(KC_UP)
 
 // enter mods
 #define KC_CENT LCTL(KC_ENT)
-#define KC_CSNT LCTL(LSFT(KC_ENT))
+#define KC_CSNT LCTL(LSFT(KC_ENT)) 
+
+// zoom
+#define KC_ZIN  LCTL(KC_PLUS)
+#define KC_ZRST LCTL(KC_0)
+#define KC_ZOUT LCTL(KC_MINS)
+
+// vscode
+#define KC_IDNT LCTL(KC_RBRC)
+#define KC_ODNT LCTL(KC_LBRC)
 
 // tap dance
 enum {
@@ -84,11 +93,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      TILD,EXLM, AT ,HASH,DLR ,PERC,               CIRC,AMPR,ASTR,LPRN,RPRN,DEL ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,PGUP,HOME, UP ,END ,    ,                   , 7  , 8  , 9  ,EQL ,BSPC,
+         ,PGUP,HOME, UP ,END ,ZIN ,                   , 7  , 8  , 9  ,PLUS,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,PGDN,LEFT,DOWN,RGHT,    ,                0  , 4  , 5  , 6  ,PLUS,    ,
+         ,PGDN,LEFT,DOWN,RGHT,ZRST,                0  , 4  , 5  , 6  ,EQL ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,LMOV,RMOV,LWSP,RWSP,    ,    ,         ,    , 1  , 2  , 3  ,MINS,    ,
+         ,LMOV,RMOV,LWSP,RWSP,ZOUT,    ,         ,    , 1  , 2  , 3  ,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,     ,           ,    , 
   //                  `----+----+----'        `----+----+----'
@@ -98,11 +107,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,VOLU,WLFT,WUP ,WRGT,    ,                   ,LCBR,RCBR,TILD,EQL,    ,
+         ,VOLU,MPRV,MPLY,MNXT,    ,                   ,LCBR,PLUS,RCBR,PIPE,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,VOLD,MPRV,MPLY,MNXT,    ,                   ,LPRN,RPRN,PIPE,PLUS,    ,
+         ,VOLD,WLFT,WMAX,WRGT,    ,                   ,LPRN,EQL ,RPRN,TILD,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,MUTE,    ,    ,    ,    ,CSNT,         ,    ,LBRC,RBRC,BSLS,MINS,    ,
+         ,MUTE,ODNT,    ,IDNT,    ,CSNT,         ,    ,LBRC,MINS,RBRC,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,CENT,             ,    ,    
   //                  `----+----+----'        `----+----+----'
