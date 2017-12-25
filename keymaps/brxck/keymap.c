@@ -33,7 +33,6 @@ enum custom_keycodes {
 #define KC_LSTT MT(MOD_LSFT, KC_LEFT)
 #define KC_QALT MT(MOD_LALT, KC_QUOT)
 #define KC_ENTS MT(MOD_LCTL, KC_ENT)
-#define KC_MSPC MT(MOD_LSFT, KC_SPACE)
 
 // workspaces
 #define KC_LWSP LALT(LCTL(KC_LEFT))
@@ -85,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSTT, Z  , X  , C  , V  , B  ,UNDS,     MINS, N  , M  ,COMM,DOT ,SLSH,RSTT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LGUI,LOWR,ENTS,        MSPC,RASE,LALT
+                       LSFT,RASE,ENTS,         SPC,LOWR,RSFT
   //                  `----+----+----'        `----+----+----'
   ),
 
