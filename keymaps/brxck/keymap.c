@@ -7,7 +7,6 @@ extern keymap_config_t keymap_config;
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
-
 #define _ADJUST 16
 
 enum custom_keycodes {
@@ -43,8 +42,9 @@ enum custom_keycodes {
 #define KC_WRGT LGUI(KC_RGHT)
 #define KC_WUP  LGUI(KC_UP)
 
-// special
+// enter mods
 #define KC_CENT LCTL(KC_ENT)
+#define KC_CSNT LCTL(LSFT(KC_ENT))
 
 // tap dance
 enum {
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,VOLD,MPRV,MPLY,MNXT,    ,                   ,LPRN,RPRN,PIPE,PLUS,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,MUTE,    ,    ,    ,    ,    ,         ,    ,LBRC,RBRC,BSLS,MINS,    ,
+         ,MUTE,    ,    ,    ,    ,CSNT,         ,    ,LBRC,RBRC,BSLS,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,CENT,             ,    ,    
   //                  `----+----+----'        `----+----+----'
