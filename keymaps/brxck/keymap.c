@@ -124,15 +124,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
    [_GAME] = KC_KEYMAP(
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
-     ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,DEL ,
+     ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,GOFF,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     TAB ,DOT , Q  , W  , E  , R  ,                Y  , U  , I  , O  , P  ,BSPC,
+     TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     LCTL,LSFT, A  , S  , D  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
+     LCTL, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     CAPS, Z  , X  , C  , V  ,GOFF,ENT ,     MINS, N  , M  ,COMM,DOT ,SLSH,RSFT,
+     CAPS, Z  , X  , C  , V  , B  ,ENT ,     MINS, N  , M  ,COMM,DOT ,SLSH,RSFT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                        R  , V  , SPC,         ENT,RASE,LALT
+                         V ,LSFT, SPC,         ENT,RASE,LALT
   //                  `----+----+----'        `----+----+----'
   )
 
