@@ -8,12 +8,15 @@ extern keymap_config_t keymap_config;
 #define _LOWER 1
 #define _RAISE 2
 #define _ADJUST 16
+#define _GAME 17
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   LOWER,
   RAISE,
-  ADJUST
+  ADJUST,
+  GAME_ON,
+  GAME_OFF,
   };
 
 #define KC_ KC_TRNS
@@ -23,6 +26,7 @@ enum custom_keycodes {
 #define KC_RASE RAISE
 #define KC_RST RESET
 #define KC_BL_S BL_STEP
+#define KC_GOFF GAME_OFF
 
 // mod tap
 #define KC_RSTT MT(MOD_RSFT, KC_RGHT)
@@ -72,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSTT, Z  , X  , C  , V  , B  ,UNDS,     MINS, N  , M  ,COMM,DOT ,SLSH,RSTT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LGUI,LOWR, ENTS,       MSPC,RASE,LALT
+                       LGUI,LOWR,ENTS,        MSPC,RASE,LALT
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -106,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ADJUST] = KEYMAP(
   //,--------+--------+--------+--------+--------+--------.                          ,--------+--------+--------+--------+--------+--------.
-      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
+      _______, GAME_ON, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
       _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
   //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
@@ -116,6 +120,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //`--------+--------+--------+----+---+--------+--------+--------/        \--------+--------+--------+---+----+--------+--------+--------'
                                       _______, _______, _______,                  _______, _______, _______
   //                                `--------+--------+--------'                `--------+--------+--------'
+  ),
+
+   [_GAME] = KC_KEYMAP(
+  //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
+     ESC , 1  , 2  , 3  , 4  , 5  ,                6  , 7  , 8  , 9  , 0  ,DEL ,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+     TAB ,DOT , Q  , W  , E  , R  ,                Y  , U  , I  , O  , P  ,BSPC,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+     LCTL,LSFT, A  , S  , D  , G  ,                H  , J  , K  , L  ,SCLN,QUOT,
+  //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
+     CAPS, Z  , X  , C  , V  ,GOFF,ENT ,     MINS, N  , M  ,COMM,DOT ,SLSH,RSFT,
+  //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
+                        R  , V  , SPC,         ENT,RASE,LALT
+  //                  `----+----+----'        `----+----+----'
   )
 
 };
@@ -168,6 +186,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case GAME_ON:
+        if (record->event.pressed) {
+            #ifdef AUDIO_ENABLE
+                PLAY_NOTE_ARRAY(tone_plover, false, 0);
+            #endif        
+            layer_off(_RAISE);
+            layer_off(_LOWER);
+            layer_off(_ADJUST);
+            layer_on(_GAME);
+        }
+        return false;
+        break;
+    case GAME_OFF:
+        if (record->event.pressed) {
+            #ifdef AUDIO_ENABLE
+                PLAY_NOTE_ARRAY(tone_plover_gb, false, 0);
+            #endif
+            layer_off(_GAME);
+        }
+        return false;
+        break;
   }
   return true;
 }
