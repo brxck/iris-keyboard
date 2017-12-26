@@ -17,7 +17,10 @@ enum custom_keycodes {
   ADJUST,
   GAME_ON,
   GAME_OFF,
+  DYNAMIC_MACRO_RANGE,
   };
+
+#include "dynamic_macro.h"
 
 #define KC_ KC_TRNS
 #define _______ KC_TRNS
@@ -59,6 +62,9 @@ enum custom_keycodes {
 #define KC_IDNT LCTL(KC_RBRC)
 #define KC_ODNT LCTL(KC_LBRC)
 
+// dynamic macros
+#define KC_STOP DYN_REC_STOP
+
 // tap dance
 enum {
   TD_GRV_ESC = 0,
@@ -67,11 +73,15 @@ enum {
 
 qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_GRV_ESC]  = ACTION_TAP_DANCE_DOUBLE(KC_GRAVE, KC_ESC),
-  [TD_GUI_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_CAPS)
+  [TD_GUI_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_CAPS),
+  [TD_DYN_PLAY] = ACTION_TAP_DANCE_DOUBLE(DYN_MACRO_PLAY1, DYN_MACRO_PLAY2),
+  [TD_DYN_REC]  = ACTION_TAP_DANCE_DOUBLE(DYN_REC_START1, DYN_REC_START2)
 };
 
 #define KC_GRES TD(TD_GRV_ESC)
 #define KC_GCAP TD(TD_GUI_CAPS)
+#define KC_PLAY TD(TD_DYN_PLAY)
+#define KC_REC  TD(TD_DYN_REC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -85,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
      LSTT, Z  , X  , C  , V  , B  ,MCTL,     UNDS, N  , M  ,COMM,DOT ,SLSH,RSTT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       LSFT,RASE,ENTS,         SPC,LOWR,RSFT
+                       PLAY,RASE,ENTS,         SPC,LOWR,LCTL
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -99,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,LMOV,RMOV,LWSP,RWSP,ZOUT,    ,         ,    , 1  , 2  , 3  ,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,    ,           ,    , 
+                       STOP,    ,    ,           ,    , 
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -113,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,MUTE,ODNT,    ,IDNT,    ,CSNT,         ,    ,LBRC,MINS,RBRC,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                           ,    ,CENT,             ,    ,    
+                        REC,    ,CENT,             ,    ,    
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -157,6 +167,9 @@ void persistent_default_layer_set(uint16_t default_layer) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  if (!process_record_dynamic_macro(keycode, record)) {
+    return false;
+  }
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
