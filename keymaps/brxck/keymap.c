@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      GCAP, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QALT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     HYPR, Z  , X  , C  , V  , B  ,MCTL,     UNDS, N  , M  ,COMM,DOT ,SLSH,LCTL,
+     HYPR, Z  , X  , C  , V  , B  ,UNDS,     MCTL, N  , M  ,COMM,DOT ,SLSH,LCTL,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        PLY1,RASE,ENTS,         SPC,LOWR,PLY2
   //                  `----+----+----'        `----+----+----'
