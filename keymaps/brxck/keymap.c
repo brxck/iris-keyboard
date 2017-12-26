@@ -93,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      GCAP, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QALT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSTT, Z  , X  , C  , V  , B  ,MCTL,     UNDS, N  , M  ,COMM,DOT ,SLSH,RSTT,
+     HYPR, Z  , X  , C  , V  , B  ,MCTL,     UNDS, N  , M  ,COMM,DOT ,SLSH,RSTT,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        PLAY,RASE,ENTS,         SPC,LOWR,LCTL
   //                  `----+----+----'        `----+----+----'
@@ -107,9 +107,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,PGDN,LEFT,DOWN,RGHT,ZRST,                0  , 4  , 5  , 6  ,EQL ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,LMOV,RMOV,LWSP,RWSP,ZOUT,    ,         ,    , 1  , 2  , 3  ,MINS,    ,
+         ,LMOV,RMOV,LWSP,RWSP,ZOUT,CSNT,         ,    , 1  , 2  , 3  ,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       STOP,    ,    ,           ,    , 
+                       STOP,    ,CENT,           ,    , 
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -121,9 +121,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,VOLD,WLFT,WMAX,WRGT,    ,                   ,LPRN,EQL ,RPRN,TILD,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,MUTE,ODNT,    ,IDNT,    ,CSNT,         ,    ,LBRC,MINS,RBRC,BSLS,    ,
+         ,MUTE,ODNT,    ,IDNT,    ,    ,         ,    ,LBRC,MINS,RBRC,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                        REC,    ,CENT,             ,    ,    
+                        REC,    ,    ,             ,    ,    
   //                  `----+----+----'        `----+----+----'
   ),
 
