@@ -23,12 +23,14 @@ enum custom_keycodes {
 #include "dynamic_macro.h"
 
 #define KC_ KC_TRNS
-#define _______ KC_TRNS
+#define ____ KC_TRNS
 
 #define KC_LOWR LOWER
 #define KC_RASE RAISE
-#define KC_RST RESET
+#define KC_RST  RESET
+#define KC_DBG  DEBUG
 #define KC_BL_S BL_STEP
+#define KC_GAME GAME_ON
 #define KC_GOFF GAME_OFF
 
 // mod tap
@@ -64,24 +66,25 @@ enum custom_keycodes {
 
 // dynamic macros
 #define KC_STOP DYN_REC_STOP
+#define KC_PLY1 DYN_MACRO_PLAY1
+#define KC_PLY2 DYN_MACRO_PLAY2
+#define KC_REC1 DYN_REC_START1
+#define KC_REC2 DYN_REC_START2
+
 
 // tap dance
 enum {
   TD_GRV_ESC = 0,
-  TD_GUI_CAPS  
+  TD_GUI_CAPS
 };
 
 qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_GRV_ESC]  = ACTION_TAP_DANCE_DOUBLE(KC_GRAVE, KC_ESC),
-  [TD_GUI_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_CAPS),
-  [TD_DYN_PLAY] = ACTION_TAP_DANCE_DOUBLE(DYN_MACRO_PLAY1, DYN_MACRO_PLAY2),
-  [TD_DYN_REC]  = ACTION_TAP_DANCE_DOUBLE(DYN_REC_START1, DYN_REC_START2)
+  [TD_GUI_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_CAPS)
 };
 
 #define KC_GRES TD(TD_GRV_ESC)
 #define KC_GCAP TD(TD_GUI_CAPS)
-#define KC_PLAY TD(TD_DYN_PLAY)
-#define KC_REC  TD(TD_DYN_REC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -93,9 +96,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      GCAP, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QALT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     HYPR, Z  , X  , C  , V  , B  ,MCTL,     UNDS, N  , M  ,COMM,DOT ,SLSH,RSTT,
+     HYPR, Z  , X  , C  , V  , B  ,MCTL,     UNDS, N  , M  ,COMM,DOT ,SLSH,LCTL,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       PLAY,RASE,ENTS,         SPC,LOWR,LCTL
+                       PLY1,RASE,ENTS,         SPC,LOWR,PLY2
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -109,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,LMOV,RMOV,LWSP,RWSP,ZOUT,CSNT,         ,    , 1  , 2  , 3  ,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                       STOP,    ,CENT,           ,    , 
+                       REC1,    ,CENT,           ,    , 
   //                  `----+----+----'        `----+----+----'
   ),
 
@@ -123,22 +126,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
          ,MUTE,ODNT,    ,IDNT,    ,    ,         ,    ,LBRC,MINS,RBRC,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
-                        REC,    ,    ,             ,    ,    
+                       REC1,    ,    ,             ,    ,    
   //                  `----+----+----'        `----+----+----'
   ),
 
-  [_ADJUST] = KEYMAP(
-  //,--------+--------+--------+--------+--------+--------.                          ,--------+--------+--------+--------+--------+--------.
-      _______, GAME_ON, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
-      _______, _______, _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------|                          |--------+--------+--------+--------+--------+--------|
-      _______, DEBUG  , _______, _______, _______, _______,                            _______, _______, _______, _______, _______, _______,
-  //|--------+--------+--------+--------+--------+--------+--------.        ,--------|--------+--------+--------+--------+--------+--------|
-      _______, RESET  , _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______, _______,
-  //`--------+--------+--------+----+---+--------+--------+--------/        \--------+--------+--------+---+----+--------+--------+--------'
-                                      _______, _______, _______,                  _______, _______, _______
-  //                                `--------+--------+--------'                `--------+--------+--------'
+  [_ADJUST] = KC_KEYMAP(
+  //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
+         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+         ,    ,    ,    ,GAME,    ,                   ,REC1,REC2,    ,    ,    ,
+  //|----+----+----+----+----+----|              |----+----+----+----+----+----|
+         ,    ,    ,    ,    ,    ,                   ,    ,    ,    ,    ,    ,
+  //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
+         ,    ,    ,    ,DBG ,RST ,    ,         ,    ,    ,    ,    ,    ,    ,
+  //`----+----+----+----+----+----+----/    \----+----+----+----+----+----+----'
+                           ,    ,    ,            ,    ,    
+  //                  `----+----+----'        `----+----+----'
   ),
 
    [_GAME] = KC_KEYMAP(
