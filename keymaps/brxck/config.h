@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MASTER_LEFT
 
 #define TAPPING_TERM 300
-#define PERMISSIVE_HOLD
+#define PREVENT_STUCK_MODIFIERS
 
 #undef RGBLED_NUM
 #define RGBLIGHT_ANIMATIONS
