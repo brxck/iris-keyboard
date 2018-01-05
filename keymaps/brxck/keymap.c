@@ -36,7 +36,8 @@ enum custom_keycodes {
 // mod tap
 #define KC_RSTT MT(MOD_RSFT, KC_RGHT)
 #define KC_LSTT MT(MOD_LSFT, KC_LEFT)
-#define KC_QALT MT(MOD_LALT, KC_QUOT)
+#define KC_ASCN MT(MOD_LALT, KC_SCLN)
+#define KC_CSLS MT(MOD_LCTL, KC_SLSH)
 #define KC_ENTS MT(MOD_LSFT, KC_ENT)
 #define KC_MCTL MT(MOD_LCTL, KC_MINS)
 
@@ -94,9 +95,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
      TAB , Q  , W  , E  , R  , T  ,                Y  , U  , I  , O  , P  ,BSPC,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-     GCAP, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,SCLN,QALT,
+     GCAP, A  , S  , D  , F  , G  ,                H  , J  , K  , L  ,ASCN,QUOT,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-     LSFT, Z  , X  , C  , V  , B  ,MCTL,     UNDS, N  , M  ,COMM,DOT ,SLSH,LCTL,
+     LSFT, Z  , X  , C  , V  , B  ,MCTL,     UNDS, N  , M  ,COMM,DOT ,CSLS,HYPR,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                        PLY1,RASE,ENTS,         SPC,LOWR,PLY2
   //                  `----+----+----'        `----+----+----'
@@ -110,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
          ,PGDN,LEFT,DOWN,RGHT,ZRST,                0  , 4  , 5  , 6  ,EQL ,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,LMOV,RMOV,LWSP,RWSP,ZOUT,CSNT,         ,    , 1  , 2  , 3  ,MINS,    ,
+         ,    ,    ,IDNT,ODNT,ZOUT,CSNT,         ,    , 1  , 2  , 3  ,MINS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,CENT,           ,    , 
   //                  `----+----+----'        `----+----+----'
@@ -120,11 +121,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,----+----+----+----+----+----.              ,----+----+----+----+----+----.
      F12 , F1 , F2 , F3 , F4 , F5 ,                F6 , F7 , F8 , F9 ,F10 ,F11 ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,VOLU,MPRV,MPLY,MNXT,    ,                   ,LCBR,PLUS,RCBR,PIPE,    ,
+         ,    ,MPRV,MPLY,MNXT,VOLU,                   ,LCBR,PLUS,RCBR,PIPE,    ,
   //|----+----+----+----+----+----|              |----+----+----+----+----+----|
-         ,VOLD,WLFT,WMAX,WRGT,    ,                   ,LPRN,EQL ,RPRN,TILD,    ,
+         ,    ,WLFT,WMAX,WRGT,VOLD,                   ,LPRN,EQL ,RPRN,COLN,    ,
   //|----+----+----+----+----+----+----.    ,----|----+----+----+----+----+----|
-         ,MUTE,ODNT,    ,IDNT,    ,    ,         ,    ,LBRC,MINS,RBRC,BSLS,    ,
+         ,LMOV,RMOV,LWSP,RWSP,MUTE,    ,         ,    ,LBRC,MINS,RBRC,BSLS,    ,
   //`----+----+----+--+-+----+----+----/    \----+----+----+----+----+----+----'
                            ,    ,    ,             ,    ,    
   //                  `----+----+----'        `----+----+----'
